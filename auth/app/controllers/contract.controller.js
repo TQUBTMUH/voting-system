@@ -13,11 +13,9 @@ exports.create = (req, res) => {
   for (i = 0; i < req.body.length; i++) {
     // Create a Contract
     const candidate = new Contract({
-      // email: req.body.email,
       //name: req.body.name,
       address: req.body[i].address,
       department: req.body[i].department
-      //active: req.body.active
     });
     contracts.push(candidate)
   }

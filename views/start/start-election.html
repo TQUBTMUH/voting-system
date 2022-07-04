@@ -242,7 +242,7 @@
       let abi =
         '[{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"deployedBallots","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getsDeployedBallots","outputs":[{"internalType":"address[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string[][]","name":"candidates","type":"string[][]"},{"internalType":"string[][]","name":"position","type":"string[][]"},{"internalType":"string[]","name":"department","type":"string[]"},{"internalType":"uint256","name":"hour","type":"uint256"}],"name":"startelec","outputs":[],"stateMutability":"nonpayable","type":"function"}]';
 
-      // let account = "0x94409d36a8a415E9B091D37221CEEEa7B09cfA68";
+      // let account = "0x94409d36a8a415E9B091D37221CEEEa7B09cfA68"; // geth
       let account = "0x69a14C179Af496c5b040546043C21aDDE4A14E7E"; // ganache
 
       let bytecode =
@@ -315,7 +315,6 @@
           console.log(candidateDepartment);
           // console.log(candidatePosition);
 
-          //$("#group_2").click(function() {
           // ELECTION TIME
           var hours = $("#starttime").val();
           try {
@@ -324,7 +323,6 @@
               contractAddress
             );
 
-            //console.log(a)
             const secondFunction = async () => {
               var btn = document.getElementById("startelec");
               // btn.style.display = "none";
@@ -337,7 +335,7 @@
                 )
                 .send({ from: account, gas: 6000000 });
               // const a = Electioncreationcontract.methods.getsDeployedBallots();
-              //console.log(a.call().value)
+              // console.log(a.call().value)
               let ballots = await Electioncreationcontract.methods
                 .getsDeployedBallots()
                 .call({ from: account, gas: 6000000 });
@@ -357,13 +355,7 @@
               let xhr = new XMLHttpRequest();
               let url_post = "http://localhost:3000/contracts";
 
-              // open a connection
-
-              //xhr.setRequestHeader("Origin", 'maximum.blog');
-              //for(i=0;i<jsonToPush.length;i++){
-
               xhr.open("POST", url_post, true);
-              //xhr.setRequestHeader("Origin", 'maximum.blog');
               xhr.setRequestHeader("Content-Type", "application/json");
 
               xhr.send(JSON.stringify(jsonToPush));

@@ -1,12 +1,7 @@
 const sql = require("./db.js");
 
 // constructor
-const Contract = function(contract) {
-  //this.email = contract.email;
-  //this.name = contract.name;
-  //this.imga = contract.imga;
-  //this.psymbol = contract.psymbol;
-  //this.party = contract.party;
+const Contract = function (contract) {
   this.district = contract.district;
   this.address = contract.address;
   //this.active = contract.active;

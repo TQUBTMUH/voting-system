@@ -118,26 +118,6 @@
                        </tr>
                    </thead>
                    <tbody id="table-body">
-                       <!-- <tr>
-                           <td>Albert Richard</td>
-                           <td>President</td>
-                           <td>Civil</td>
-                       </tr>
-                       <tr>
-                           <td>Daudi Jacob</td>
-                           <td>President</td>
-                           <td>Computer</td>
-                       </tr>
-                       <tr>
-                           <td>Tesha	Douglas</td>
-                           <td>President</td>
-                           <td>Electrical</td>
-                       </tr>
-                       <tr>
-                           <td>Daniel Lyimo</td>
-                           <td>President</td>
-                           <td>Computer</td>
-                       </tr> -->
                    </tbody>
                </table>
            </div>
@@ -243,14 +223,6 @@
           let candidates = request.response;
           department_contract = {};
           for (var k in candidates) {
-
-            // var elmtTable = document.getElementById("demo-dt-addrow");
-            // var tableRows = elmtTable.getElementsByTagName("tr");
-            // var rowCount = tableRows.length;
-
-            // for (var x = rowCount - 1; x > 0; x--) {
-            //     elmtTable.removeChild(tableRows[x]);
-            // }
 
               const candidateName = candidates[k].name;
               const candidatePosition = candidates[k].position;

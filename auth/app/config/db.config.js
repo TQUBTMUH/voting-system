@@ -1,7 +1,7 @@
 
 module.exports = {
   HOST: "localhost",
-  USER: "nixon",
-  PASSWORD: "NIXONPc@325827",
+  USER: "",
+  PASSWORD: "",
   DB: "voting_system"
 };

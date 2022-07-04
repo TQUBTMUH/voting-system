@@ -27,7 +27,7 @@ angular.module('ethExplorer', ['ngRoute', 'ui.bootstrap'])
         }])
     .run(function ($rootScope) {
         var web3 = new Web3();
-        var eth_node_url = 'http://localhost:7545'; // TODO: remote URL, client URL
+        var eth_node_url = 'http://localhost:7545'; // blockchain IPC URL
         web3.setProvider(new web3.providers.HttpProvider(eth_node_url));
         $rootScope.web3 = web3;
         function sleepFor(sleepDuration) {
