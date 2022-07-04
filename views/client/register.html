@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register page</title>
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Roboto Slab Font [ OPTIONAL ] -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400"
+      rel="stylesheet"
+    />
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--Jasmine Stylesheet [ REQUIRED ]-->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link
+      href="../../assets/plugins/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <!--Switchery [ OPTIONAL ]-->
+    <link
+      href="../../assets/plugins/switchery/switchery.min.css"
+      rel="stylesheet"
+    />
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link
+      href="../../assets/plugins/bootstrap-select/bootstrap-select.min.css"
+      rel="stylesheet"
+    />
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="../../assets/css/demo/jasmine.css" rel="stylesheet" />
+    <!--SCRIPT-->
+    <!--=================================================-->
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="../../assets/plugins/pace/pace.min.css" rel="stylesheet" />
+    <script src="../../assets/plugins/pace/pace.min.js"></script>
+  </head>
+  <!--TIPS-->
+  <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+  <body>
+    <div id="container" class="cls-container">
+      <!-- REGISTRATION FORM -->
+      <!--===================================================-->
+      <div class="lock-wrapper">
+        <div class="panel lock-box">
+          <h3>Registration</h3>
+          <div class="row">
+            <form id="registration" class="form-inline" action="#">
+              <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <div id="demo-error-container"></div>
+              </div> -->
+              <div
+                class="form-group col-md-12 col-sm-12 col-xs-12"
+                style="margin-bottom: 1.5rem"
+              >
+                <div class="text-left">
+                  <label for="signupDeptName" class="control-label"
+                    >Department</label
+                  >
+                  <select class="form-control selectpicker" id="signupDeptName">
+                    <option>Computer</option>
+                    <option>Civil</option>
+                    <option>Telecom</option>
+                    <option>Mechanical</option>
+                    <option>Electrical</option>
+                    <option>Oil and Gas</option>
+                    <option>Biomedical</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <div class="text-left">
+                  <label for="signupInputText" class="control-label"
+                    >Registration Number</label
+                  >
+                  <input
+                    id="signupInputText"
+                    type="text"
+                    placeholder="Enter Registration Number"
+                    class="form-control"
+                    name="text"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <div class="text-left">
+                  <label for="signupInputPassword" class="control-label"
+                    >Password</label
+                  >
+                  <input
+                    id="signupInputPassword"
+                    type="password"
+                    placeholder="Password"
+                    class="form-control lock-input"
+                    name="password"
+                    required
+                  />
+                </div>
+              </div>
+              <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <div class="text-left">
+                  <label for="signupInputRepassword" class="control-label"
+                    >Retype Password</label
+                  >
+                  <input
+                    id="signupInputRepassword"
+                    type="password"
+                    placeholder="Retype Password"
+                    class="form-control lock-input"
+                    name="confirmPassword"
+                  />
+                </div>
+              </div> -->
+              <!-- should be processed by b.end and not go directly to login.html -->
+              <a
+                class="btn btn btn-primary pull-right"
+                onclick="register()"
+                style="margin-right: 1.5rem"
+              >
+                Register
+              </a>
+            </form>
+          </div>
+        </div>
+        <div class="registration">
+          Already registered!
+          <a href="login.html">
+            <span class="text-primary"> Please Login Here </span>
+          </a>
+        </div>
+      </div>
+      <!--===================================================-->
+      <!-- REGISTRATION FORM -->
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <script src="../../assets/js/jquery-2.1.1.min.js"></script>
+    <script>
+      var select = document.getElementById("signupDeptName");
+      function register() {
+        var regNumber = $("#signupInputText").val();
+        var pwd = $("#signupInputPassword").val();
+        var hash = pwd.concat(regNumber);
+        console.log(hash);
+        //document.write(hash);
+        const department = select.options[select.selectedIndex].value;
+        const json = {};
+        json["regNumber"] = regNumber;
+        json["hash"] = hash;
+        json["department"] = department;
+        const jsonString = JSON.stringify(json);
+        console.log(jsonString);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:3000/users", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(jsonString);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // TODO: Redirect to login page
+            status.innerHTML = "Successfully registerd user!!";
+            console.log("user added");
+          }
+        };
+      }
+    </script>
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="../../assets/plugins/fast-click/fastclick.min.js"></script>
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="../../assets/plugins/switchery/switchery.min.js"></script>
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="../../assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <script src="../../assets/plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="../../assets/js/demo/pages-register.js"></script>
+  </body>
+</html>

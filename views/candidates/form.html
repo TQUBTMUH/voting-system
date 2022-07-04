@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Candidate</title>
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Roboto Slab Font [ OPTIONAL ] -->
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto:500,400italic,100,700italic,300,700,500italic,400"
+      rel="stylesheet"
+    />
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--Jasmine Stylesheet [ REQUIRED ]-->
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link
+      href="../../assets/plugins/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <!--Switchery [ OPTIONAL ]-->
+    <link
+      href="../../assets/plugins/switchery/switchery.min.css"
+      rel="stylesheet"
+    />
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <link
+      href="../../assets/plugins/bootstrap-select/bootstrap-select.min.css"
+      rel="stylesheet"
+    />
+    <!--Demo [ DEMONSTRATION ]-->
+    <!-- <link href="c../../assets/ss/demo/jasmine.css" rel="stylesheet" /> -->
+    <!--SCRIPT-->
+    <!--=================================================-->
+    <!--Page Load Progress Bar [ OPTIONAL ]-->
+    <link href="../../assets/plugins/pace/pace.min.css" rel="stylesheet" />
+    <script src="../../assets/plugins/pace/pace.min.js"></script>
+  </head>
+  <!--TIPS-->
+  <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+  <body>
+    <div id="container" class="effect mainnav-sm navbar-fixed mainnav-fixed">
+      <!--NAVBAR-->
+      <!--===================================================-->
+      <header id="navbar">
+        <div id="navbar-container" class="boxed">
+          <!--Navbar Dropdown-->
+          <!--================================-->
+          <div class="navbar-content clearfix">
+            <ul class="nav navbar-top-links pull-left">
+              <!--Navigation toogle button-->
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <li class="tgl-menu-btn">
+                <a class="mainnav-toggle" href="#">
+                  <i class="fa fa-navicon fa-lg"></i>
+                </a>
+              </li>
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <!--End Navigation toogle button-->
+            </ul>
+
+            <ul class="nav navbar-top-links pull-right">
+              <!--User dropdown-->
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <li id="dropdown-user" class="dropdown">
+                <a
+                  href="#"
+                  data-toggle="dropdown"
+                  class="dropdown-toggle text-right"
+                >
+                  <span class="pull-right">
+                    <img
+                      class="img-circle img-user media-object"
+                      src="../../assets/img/av1.png"
+                      alt="Profile Picture"
+                    />
+                  </span>
+                  <div class="username hidden-xs">Admin</div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right with-arrow">
+                  <!-- User dropdown menu -->
+                  <ul class="head-list">
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-sign-out fa-fw"></i> Logout
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+              <!--End user dropdown-->
+            </ul>
+          </div>
+          <!--================================-->
+          <!--End Navbar Dropdown-->
+        </div>
+      </header>
+      <!--===================================================-->
+      <!--END NAVBAR-->
+      <div class="boxed">
+        <!--CONTENT CONTAINER-->
+        <!--===================================================-->
+        <div id="content-container">
+          <div class="pageheader hidden-xs">
+            <h3><i class="fa fa-home"></i> Register Candidate</h3>
+            <div id="status" size="200px"></div>
+          </div>
+          <!--Page content-->
+          <div class="container">
+            <div class="row justify-content-center align-item-center">
+              <div class="col-lg-6">
+                <div class="panel">
+                  <form class="form-horizontal">
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label
+                          class="col-sm-3 control-label"
+                          for="demo-hor-inputname"
+                          >Full Name</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            placeholder="Full Name"
+                            id="name"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          class="col-sm-3 control-label"
+                          for="demo-hor-inputposition"
+                          >Position</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="text"
+                            placeholder="Position"
+                            id="position"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label
+                          class="col-sm-3 control-label"
+                          for="demo-hor-inputdept"
+                          >Department</label
+                        >
+                        <div class="col-sm-9">
+                          <select
+                            class="form-control selectpicker"
+                            id="selectDepartment"
+                          >
+                            <option>Computer</option>
+                            <option>Civil</option>
+                            <option>Telecom</option>
+                            <option>Mechanical</option>
+                            <option>Electrical</option>
+                            <option>Oil and Gas</option>
+                            <option>Biomedical</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                      <!-- TODO: Send to db \ -->
+                      <!-- <a
+                        href="candidates.html"
+                        class="btn btn-info"
+                        onclick="submit()"
+                        type="submit"
+                      >
+                        Register
+                      </a> -->
+                      <a class="btn btn-info" onclick="submit()"> Register </a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End page content-->
+        </div>
+        <!--===================================================-->
+        <!--END CONTENT CONTAINER-->
+        <!--MAIN NAVIGATION-->
+        <!--===================================================-->
+        <nav id="mainnav-container">
+          <!--Brand logo & name-->
+          <!--================================-->
+          <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">
+              <i class="fa fa-forumbee brand-icon"></i>
+              <div class="brand-title">
+                <span class="brand-text">SVS</span>
+              </div>
+            </a>
+          </div>
+          <!--================================-->
+          <!--End brand logo & name-->
+          <div id="mainnav">
+            <!--Menu-->
+            <!--================================-->
+            <div id="mainnav-menu-wrap">
+              <div class="nano">
+                <div class="nano-content">
+                  <ul id="mainnav-menu" class="list-group">
+                    <!--Menu list item-->
+                    <li>
+                      <a href="../monitor/index.html">
+                        <i class="fa fa-home"></i>
+                        <span class="menu-title"> Dashboard </span>
+                      </a>
+                    </li>
+                    <!--Menu list item-->
+                    <li>
+                      <a href="../candidates/candidates.html">
+                        <i class="fa fa-user"></i>
+                        <span class="menu-title">Candidates</span>
+                      </a>
+                    </li>
+                    <!--Menu list item-->
+                    <li>
+                      <a href="../voters/voters.html">
+                        <i class="fa fa-users"></i>
+                        <span class="menu-title">Voters</span>
+                      </a>
+                    </li>
+                    <!--Menu list item-->
+                    <li>
+                      <a href="../start/start-election.html">
+                        <i class="fa fa-play"></i>
+                        <span class="menu-title">Start Election</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--================================-->
+            <!--End menu-->
+          </div>
+        </nav>
+        <!--===================================================-->
+        <!--END MAIN NAVIGATION-->
+      </div>
+      <!-- FOOTER -->
+      <!--===================================================-->
+      <footer id="footer">
+        <p class="pad-lft">&#0169; 2022 Nixon Mkindi</p>
+      </footer>
+      <!--===================================================-->
+      <!-- END FOOTER -->
+      <!-- SCROLL TOP BUTTON -->
+      <!--===================================================-->
+      <button id="scroll-top" class="btn">
+        <i class="fa fa-chevron-up"></i>
+      </button>
+      <!--===================================================-->
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <!-- <script src="../../assets/js/jquery-2.1.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script type="text/javascript">
+      var select = document.getElementById("selectDepartment");
+      jsonToPush = {};
+      function submit() {
+        jsonToPush["name"] = $("#name").val();
+        jsonToPush["position"] = $("#position").val();
+        jsonToPush["department"] = select.options[select.selectedIndex].value;
+        console.log(JSON.stringify(jsonToPush));
+        let xhr = new XMLHttpRequest();
+        let url_post = "http://localhost:3000/candidates";
+        xhr.open("POST", url_post, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(jsonToPush));
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var notify = document.getElementById("status");
+            notify.innerHTML = "Successfully added Candidate!!";
+            console.log("candidate added");
+          }
+        };
+      }
+    </script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <!--Fast Click [ OPTIONAL ]-->
+    <script src="../../assets/plugins/fast-click/fastclick.min.js"></script>
+    <!--Jquery Nano Scroller js [ REQUIRED ]-->
+    <script src="../../assets/plugins/nanoscrollerjs/jquery.nanoscroller.min.js"></script>
+    <!--Metismenu js [ REQUIRED ]-->
+    <script src="../../assets/plugins/metismenu/metismenu.min.js"></script>
+    <!--Jasmine Admin [ RECOMMENDED ]-->
+    <script src="../../assets/js/scripts.js"></script>
+    <!--Jquery Nano Scroller js [ REQUIRED ]-->
+    <script src="../../assets/plugins/nanoscrollerjs/jquery.nanoscroller.min.js"></script>
+    <!--Metismenu js [ REQUIRED ]-->
+    <script src="../../assets/plugins/metismenu/metismenu.min.js"></script>
+    <!--Switchery [ OPTIONAL ]-->
+    <script src="../../assets/plugins/switchery/switchery.min.js"></script>
+    <!--Bootstrap Select [ OPTIONAL ]-->
+    <script src="../../assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <!--Fullscreen jQuery [ OPTIONAL ]-->
+    <script src="../../assets/plugins/screenfull/screenfull.js"></script>
+    <!--Demo script [ DEMONSTRATION ]-->
+    <script src="../../assets/js/demo/form-layout.js"></script>
+  </body>
+</html>
