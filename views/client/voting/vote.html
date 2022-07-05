@@ -123,24 +123,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="table-body">
-                                        <!-- <tr>
-                                            <td>1</td>
-                                            <td>Emmanuel Leon</td>
-                                            <td>President</td>
-                                            <td>Mechanical</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Laurence Mbise</td>
-                                            <td>President</td>
-                                            <td>Computer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Juma Kalinga</td>
-                                            <td>President</td>
-                                            <td>Electrical</td>
-                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -195,7 +177,7 @@
 
         <script type="text/javascript">
             let web3 = new Web3(
-              new Web3.providers.HttpProvider("http://localhost:7545")
+              new Web3.providers.HttpProvider("http://localhost:8545")
             );
       
             // I HAVEN'T USED THIS -> auth deleted
@@ -228,8 +210,8 @@
       
             web3.eth.defaultAccount = web3.eth.accounts[0];
       
-            // let account = "0x395413c8C1C321559b142d7F3F16d1AE320B3972"; //voting a/c from geth
-            let account = "0xC6c35fC0855ab41FBE61E0520c0540B6B4ee50E2";
+            // let account = "0xabAd6463821920e33c90752B3DD89598d687cD5A"; // ganache
+            let account = "0xe2235D122206014A4D70B6Ebb7c6029B8D286358"; // geth
       
             message_div = document.getElementById("message_div");
             message_div.style.display = "none";
@@ -255,7 +237,7 @@
               //  .getLength()
               //  .call({ from: account, gas: 6000000 }); //.send({from : account, gas: 6000000}); // call() is used for sync read only calls.
               // len = numberOfCandidates;
-              var numberOfCandidates = 4;
+              var numberOfCandidates = 5;
               console.log(numberOfCandidates);
               var i = 0;
               for (i = 0; i < numberOfCandidates - 1; i++)
@@ -279,7 +261,7 @@
             const populateCandidates = async () => {
               // console.log(BallotContract)
       
-              for (i = 0; i < len; i++) {
+              for (i = 0; i < numberOfCandidates; i++) {
                 // Creates a row element.
       
                 const candidateName = candidateNames[i];
@@ -301,9 +283,11 @@
                 rowElem.appendChild(nameCell);
                 rowElem.appendChild(positionCell);
                 // Adds the new row to the voting table.
-                const tableElem = document.getElementById("table");
-                //console.log(tableElem)
-                tableElem.appendChild(rowElem);
+                const tableElem = document.getElementById("demo-dt-addrow");
+                const tableBody = document.getElementById("table-body");
+                // console.log(tableElem)
+                tableBody.appendChild(rowElem)
+                tableElem.appendChild(tableBody);
               }
             };
             

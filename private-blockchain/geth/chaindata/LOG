@@ -1,0 +1,6 @@
+=============== Jul 5, 2022 (EAT) ===============
+13:34:36.918319 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:34:36.963194 db@open opening
+13:34:37.178020 version@stat F·[] S·0B[] Sc·[]
+13:34:37.188059 db@janitor F·2 G·0
+13:34:37.188161 db@open done T·224.875578ms

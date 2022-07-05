@@ -218,7 +218,7 @@
       <!-- <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script> -->
       <script type="text/javascript">
         let web3 = new Web3(
-            new Web3.providers.HttpProvider("http://localhost:7545")
+            new Web3.providers.HttpProvider("http://localhost:8545")
         );
         let departmentAddress = "";
 
@@ -266,8 +266,8 @@
 
         web3.eth.defaultAccount = web3.eth.accounts[0];
 
-        // let account = "0x94409d36a8a415E9B091D37221CEEEa7B09cfA68"; // geth account
-        let account = "0x69a14C179Af496c5b040546043C21aDDE4A14E7E";
+        let account = "0x369da7512A64D4cf5bd3450654446e062DafbdCE"; // geth account
+        // let account = "0x69a14C179Af496c5b040546043C21aDDE4A14E7E"; // ganache
 
         // NOT USED
         const tableElem = document.getElementById("table-body");
@@ -342,7 +342,7 @@
                 elmtTable.removeChild(tableRows[x]);
             }
 
-            for (var i = 0; i < len; i++) {
+            for (var i = 0; i < numberOfCandidates; i++) {
                 // Creates a row element.
 
                 const candidateName = candidateNames[i];
@@ -367,10 +367,12 @@
                 rowElem.appendChild(nameCell);
                 rowElem.appendChild(positionCell);
                 rowElem.appendChild(voteCell);
-                // Adds the new row to the voting table.
-                const tableElem = document.getElementById("table");
-                //console.log(tableElem)
-                tableElem.appendChild(rowElem);
+                // Adds the new row to monitoring table.
+                const tableElem = document.getElementById("demo-dt-addrow");
+                const tableBody = document.getElementById("table-body");
+                // console.log(tableElem)
+                tableBody.appendChild(rowElem);
+                tableElem.appendChild(tableBody);
             }
         };
       </script>
